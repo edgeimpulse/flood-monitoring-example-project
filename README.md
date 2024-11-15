@@ -38,8 +38,9 @@ This transformation block processes the downloaded flood and rain data archives.
 
    Use the `download-flood-archives` transformation block to download the last two years' worth of flood and rain data.
 
-   ```bash
+   ```python
    python download-flood-archives/transform.py --out-directory <output_directory> --start-date 730 --end-date 0
+   ```
  2. **Process Flood Archives:**
 
 Use the process-flood-archives transformation block to process the downloaded data and combine it into a single dataset.
