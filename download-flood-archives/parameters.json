@@ -1,0 +1,40 @@
+{
+    "version": 1,
+    "type": "transform",
+    "info": {
+        "name": "Environment Agency Flood & Rain Archive Downloader",
+        "description": "Downloads archive flood and rain data from https://environment.data.gov.uk/flood-monitoring/archive and stores it in a bucket. It will only download new files if present. You can specify the start and end date (relative to today) in days.",
+        "operatesOn": "standalone",
+        "transformMountpoints": [
+  
+        ],
+        "allowExtraCliArguments": true,
+        "cliArguments": "",
+        "indMetadata": true,
+        "showInCreateTransformationJob": true,
+        "showInDataSources": false
+    },
+    "parameters": [
+        {
+            "name": "Output Directory",
+            "value": "/mnt/s3fs/edge-impulse-customers-demo-team/pre-sales/jimbruges/flood-monitoring/raw",
+            "type": "string",
+            "param": "out-directory",
+            "help": "The prefix in the bucket, where you're saving the raw data"
+        },
+        {
+            "name": "Start Date (end date - days)",
+            "value": 365,
+            "type": "int",
+            "param": "start-date",
+            "help": "How many days before today to start downloading archives"
+        },
+        {
+            "name": "End Date (current date - days)",
+            "value": 0,
+            "type": "int",
+            "param": "end-date",
+            "help": "How many days before today to finish downloading archives"
+        }
+    ]
+}

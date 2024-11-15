@@ -1,0 +1,103 @@
+{
+    "version": 1,
+    "type": "transform",
+    "info": {
+        "name": "Process Flood Archives",
+        "description": "Take downloaded flood archives and process into time-series tabular data for a particular monitoring station ready to train models on",
+        "operatesOn": "directory",
+        "transformMountpoints": [
+           
+        ],
+        "allowExtraCliArguments": false,
+        "cliArguments": "",
+        "indMetadata": true,
+        "showInCreateTransformationJob": true,
+        "showInDataSources": true
+    },
+    "parameters": [
+        {
+            "name": "Input Directory",
+            "value": "/mnt/s3fs/edge-impulse-customers-demo-team/pre-sales/jimbruges/flood-monitoring/raw",
+            "type": "string",
+            "param": "in-directory",
+            "help": "The directory where the input data is stored"
+        },
+        {
+            "name": "Output Directory",
+            "value": "/mnt/s3fs/edge-impulse-customers-demo-team/pre-sales/jimbruges/flood-monitoring",
+            "type": "string",
+            "param": "out-directory",
+            "help": "The prefix in the bucket, where you're saving the raw data"
+        },
+        {
+            "name": "Start Date (end date - days)",
+            "value": 365,
+            "type": "int",
+            "param": "start-date",
+            "help": "How many days before today to start downloading archives"
+        },
+        {
+            "name": "End Date (current date - days)",
+            "value": 0,
+            "type": "int",
+            "param": "end-date",
+            "help": "How many days before today to finish downloading archives"
+        },
+        {
+            "name": "Label Station",
+            "value": "F2470",
+            "type": "string",
+            "param": "label-station",
+            "help": "The station used for labeling"
+        },
+        {
+            "name": "Flood Stations",
+            "value": "F2470,L2472,L2471,L2478",
+            "type": "string",
+            "param": "flood-stations",
+            "help": "Comma-separated list of flood stations"
+        },
+        {
+            "name": "Rain Stations",
+            "value": "059793",
+            "type": "string",
+            "param": "rain-stations",
+            "help": "Comma-separated list of rain stations"
+        },
+        {
+            "name": "Normal Limit",
+            "value": 0.7,
+            "type": "float",
+            "param": "normal-limit",
+            "help": "The normal limit value"
+        },
+        {
+            "name": "High Limit",
+            "value": 1.3,
+            "type": "float",
+            "param": "high-limit",
+            "help": "The high limit value"
+        },
+        {
+            "name": "Flood Limit",
+            "value": 2,
+            "type": "float",
+            "param": "flood-limit",
+            "help": "The flood limit value"
+        },
+        {
+            "name": "Time Label Intervals to Use (how many hours ahead to predict)",
+            "value": "0.5, 1,2,4,8,12,24,48",
+            "type": "string",
+            "param": "deltas",
+            "help": "Comma-separated list of deltas in hours that you want to generate as label columns"
+        },
+        {
+            "name": "Split into files of length N hours (-1 for Unlimited)",
+            "value": 48,
+            "type": "int",
+            "param": "split",
+            "help": "Comma-separated list of deltas in hours that you want to generate as label columns"
+        }
+    ]
+}
