@@ -46,40 +46,40 @@ This transformation block processes the downloaded flood and rain data archives.
 Use the process-flood-archives transformation block to process the downloaded data and combine it into a single dataset.
 
 
- 3. Train a Machine Learning Model
+ 3. **Train a Machine Learning Model**
 
 To train a machine learning model using the combined dataset, follow these steps:
 
 **Configure CSV Wizard:**
 
-    Use the CSV Wizard configuration tool to set up your training data. Take a single CSV file from your processed data (the output from process-flood-archives), and upload this into the [CSV Wizard](https://docs.edgeimpulse.com/docs/edge-impulse-studio/data-acquisition/csv-wizard) in a new Edge Impulse project.  Specify the label column and the data columns that you want to use for training your model. 
+   Use the CSV Wizard configuration tool to set up your training data. Take a single CSV file from your processed data (the output from process-flood-archives), and upload this into the [CSV Wizard](https://docs.edgeimpulse.com/docs/edge-impulse-studio/data-acquisition/csv-wizard) in a new Edge Impulse project.  Specify the label column and the data columns that you want to use for training your model. 
 
-    - **Label Column:** This is the column that contains the target variable you want to predict (e.g., future river levels) E.G. F2470_1hr as your label column will allow you to train a regression model that can forecast 1 hour ahead
-    - **Data Columns:** These are the columns that contain the input features for your model (e.g., rainfall data, river levels). This should not include your time delta columns, just the raw data columns.
+   - **Label Column:** This is the column that contains the target variable you want to predict (e.g., future river levels) E.G. F2470_1hr as your label column will allow you to train a regression model that can forecast 1 hour ahead
+   - **Data Columns:** These are the columns that contain the input features for your model (e.g., rainfall data, river levels). This should not include your time delta columns, just the raw data columns.
 
 **Import Your Processed Data:**
 
-    Once the Wizard is configured you can import all of your processed data. If this is on your desktop then simply upload the files using the Data Acquisition web upload tool. If you have used the transformation blocks inside an Organisation you can import your data directly from the Dataset your transformation block outputted to. To achieve this head to Data Acquisition->Data Sources and choose the Dataset and relevant path (e.g. "flood-monitoring/F2470/combined_48hr_split/"). This method can be set up as an automatic pipeline which monitors the dataset for any new data and then ingests it into your project, retraining and deploying a new version.
+   Once the Wizard is configured you can import all of your processed data. If this is on your desktop then simply upload the files using the Data Acquisition web upload tool. If you have used the transformation blocks inside an Organisation you can import your data directly from the Dataset your transformation block outputted to. To achieve this head to Data Acquisition->Data Sources and choose the Dataset and relevant path (e.g. "flood-monitoring/F2470/combined_48hr_split/"). This method can be set up as an automatic pipeline which monitors the dataset for any new data and then ingests it into your project, retraining and deploying a new version.
 
 **Split your data for Training & Testing:**
     
-    When performing time series forecasting, it is crucial to split your data into training and testing sets based on a date to ensure that the model is evaluated on its ability to predict future values rather than simply memorizing past data. By separating the data such that the training set consists of data from one period (e.g., one year) and the testing set from a subsequent period (e.g., the following year), you prevent data leakage, where information from the future could inadvertently influence the model during training. 
+   When performing time series forecasting, it is crucial to split your data into training and testing sets based on a date to ensure that the model is evaluated on its ability to predict future values rather than simply memorizing past data. By separating the data such that the training set consists of data from one period (e.g., one year) and the testing set from a subsequent period (e.g., the following year), you prevent data leakage, where information from the future could inadvertently influence the model during training. 
 
-    The simplest way to do this is to make use of the filtering tools in the Data Acquisition screen. Filter the filenames by e.g. "2023" and move all those samples to the testing set, then filter the testing set by "2024" and move all those samples to the training set. This will make sure you are validating this model based on unseen data. 
+   The simplest way to do this is to make use of the filtering tools in the Data Acquisition screen. Filter the filenames by e.g. "2023" and move all those samples to the testing set, then filter the testing set by "2024" and move all those samples to the training set. This will make sure you are validating this model based on unseen data. 
 
 **Train the Model:**
 
-    Once the CSV Wizard is configured, proceed with training your machine learning model using the specified label and data columns. As this is very low frequency data, you'll need to set your window size and increase to a very large millisecond value such as 5400000ms (1.5 hours). 
+   Once the CSV Wizard is configured, proceed with training your machine learning model using the specified label and data columns. As this is very low frequency data, you'll need to set your window size and increase to a very large millisecond value such as 5400000ms (1.5 hours). 
 
 **Evaluate the Model:**
 
-    After training, evaluate the performance of your model using appropriate metrics (e.g., mean absolute error, root mean squared error) to ensure it accurately predicts future river levels.
+   After training, evaluate the performance of your model using appropriate metrics (e.g., mean absolute error, root mean squared error) to ensure it accurately predicts future river levels.
 
 **Deploy the Model:**
 
-    Once you are satisfied with the model's performance, deploy it to make real-time predictions based on new input data. The input data could be scraped from the [Environment Agency Real Time Data API](https://environment.data.gov.uk/flood-monitoring/doc/reference) and passed directly into the model. You could chain multiple time-delta trained models together to get a longer forecast, the shorter the time delta the higher accuracy your model is likely to be so this is important to bare in mind. If river level is influenced by rainfall, the +1Hr model is more likely to respond accurately to the input rainfall than the +24hr model. 
+   Once you are satisfied with the model's performance, deploy it to make real-time predictions based on new input data. The input data could be scraped from the [Environment Agency Real Time Data API](https://environment.data.gov.uk/flood-monitoring/doc/reference) and passed directly into the model. You could chain multiple time-delta trained models together to get a longer forecast, the shorter the time delta the higher accuracy your model is likely to be so this is important to bare in mind. If river level is influenced by rainfall, the +1Hr model is more likely to respond accurately to the input rainfall than the +24hr model. 
 
-    These models could be run in bare metal on an MCU *or* on a linux MPU as they have low compute requirements. Running on Linux would allow more flexibility for OTA updating of the models when new versions are available.
+   These models could be run in bare metal on an MCU *or* on a linux MPU as they have low compute requirements. Running on Linux would allow more flexibility for OTA updating of the models when new versions are available.
 
 By following these steps, you can effectively train a machine learning model to predict future river levels using the processed flood and rain data.
 
