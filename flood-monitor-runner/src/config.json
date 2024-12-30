@@ -1,0 +1,14 @@
+{
+    "refresh_models_interval": 4,
+    "models": [
+        {"model": "modelfile_1hr.eim", "api": "APIKEY_FROM_EDGE_IMPULSE", "impulse-id": "36", "hours_ahead": 1},
+        {"model": "modelfile_4hr.eim", "api": "APIKEY_FROM_EDGE_IMPULSE", "impulse-id": "2", "hours_ahead": 4},
+        {"model": "modelfile_8hr.eim", "api": "APIKEY_FROM_EDGE_IMPULSE", "impulse-id": "71", "hours_ahead": 8},
+        {"model": "modelfile_24hr.eim", "api": "APIKEY_FROM_EDGE_IMPULSE", "impulse-id": "3", "hours_ahead": 24}
+    ],
+    "foss_station_id": "F2470",
+    "ref": "F2470",
+    "rainfall_refs": ["059793"],
+    "refs": ["F2470", "L2471", "L2472", "L2478"],
+    "test_features": [0.0000, 0.8569, 7.4317, 5.6041, 0.5818, 3.0000, 0.0000, 0.8568, 7.4333, 5.6032, 0.5817, 3.0000, 0.0000, 0.8566, 7.4350, 5.6023, 0.5815, 3.0000, 0.0000, 0.8565, 7.4367, 5.6015, 0.5813, 3.0000, 0.0000, 0.8564, 7.4384, 5.6006, 0.5812, 3.0000, 0.0000, 0.8563, 7.4400, 5.5997, 0.5810, 3.0000]
+}

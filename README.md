@@ -81,6 +81,8 @@ To train a machine learning model using the combined dataset, follow these steps
 
    These models could be run in bare metal on an MCU *or* on a linux MPU as they have low compute requirements. Running on Linux would allow more flexibility for OTA updating of the models when new versions are available.
 
+   The [flood-monitor-runner] folder contains an example docker container which will download the most recent model files and run your models every 15 minutes outputting to images which are hosted in a simple webpage. This could be run on an MPU like a Raspberry Pi.
+
 By following these steps, you can effectively train a machine learning model to predict future river levels using the processed flood and rain data.
 
 ## Output

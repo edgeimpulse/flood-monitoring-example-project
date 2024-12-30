@@ -1,0 +1,14 @@
+click==8.0.4
+Flask==2.0.3
+importlib-metadata==4.8.3
+itsdangerous==2.0.1
+Jinja2==3.0.3
+MarkupSafe==2.0.1
+Werkzeug==2.0.3
+zipp==3.6.0
+requests
+pandas
+edge_impulse_linux
+matplotlib
+pyaudio
+numpy<2
