@@ -8,10 +8,14 @@ This architecture diagram describes how this system could be deployed in product
 
 ## Public Projects
 Flood prediction Edge Impulse models built using these blocks and deployed with this deployment code can be found below. Each model predicts X hours into the future. The larger the time delta the lower the accuracy:
-![+1Hr Model](https://studio.edgeimpulse.com/public/533742/live)
-![+4Hr Model](https://studio.edgeimpulse.com/public/535119/live)
-![+8Hr Model](https://studio.edgeimpulse.com/public/536411/live)
-![+24Hr Model](https://studio.edgeimpulse.com/public/535081/live)
+
+[+1Hr Model](https://studio.edgeimpulse.com/public/533742/live)
+
+[+4Hr Model](https://studio.edgeimpulse.com/public/535119/live)
+
+[+8Hr Model](https://studio.edgeimpulse.com/public/536411/live)
+
+[+24Hr Model](https://studio.edgeimpulse.com/public/535081/live)
 
 
 ## Transformation Blocks
