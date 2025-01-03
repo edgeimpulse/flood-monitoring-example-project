@@ -2,6 +2,18 @@
 
 This project contains a set of transformation blocks designed to work with the UK Government River Level and Rainfall Data API. The purpose of these blocks is to download and process the last two years' worth of flood and rain data from across the country. The data is then narrowed down to a series of defined flood monitoring stations and rainfall monitoring stations, combined into a single dataset, and prepared for training a machine learning model to predict future river levels up to twenty-four hours ahead based on previous data.
 
+This architecture diagram describes how this system could be deployed in production:
+
+![Flood Forecasting with Edge Impulse](https://github.com/user-attachments/assets/03f21179-434e-4cdd-b054-6ef861c418df)
+
+## Public Projects
+Flood prediction Edge Impulse models built using these blocks and deployed with this deployment code can be found below. Each model predicts X hours into the future. The larger the time delta the lower the accuracy:
+![+1Hr Model](https://studio.edgeimpulse.com/public/533742/live)
+![+4Hr Model](https://studio.edgeimpulse.com/public/535119/live)
+![+8Hr Model](https://studio.edgeimpulse.com/public/536411/live)
+![+24Hr Model](https://studio.edgeimpulse.com/public/535081/live)
+
+
 ## Transformation Blocks
 
 ### 1. Download Flood Archives
