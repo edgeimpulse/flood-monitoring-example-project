@@ -20,6 +20,8 @@ Flood prediction Edge Impulse models built using these blocks and deployed with 
 
 ## Transformation Blocks
 
+These blocks are used to download and process the raw data form the River Level and Rainfall Data API. Some example data from each stage is available in [example-data](example-data). The raw data files these processed examples are derived from (too large to for GitHub) can be downloaded from the [Environment Agency Real Time Flood Monitoring Archive](https://environment.data.gov.uk/flood-monitoring/archive).
+
 ### 1. Download Flood Archives
 
 This transformation block downloads the archive flood and rain data from the UK Government River Level and Rainfall Data API. It retrieves data for the last two years and stores it in a specified output directory. The block ensures that only new files are downloaded if they are present.

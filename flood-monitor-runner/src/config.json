@@ -6,7 +6,6 @@
         {"model": "modelfile_8hr.eim", "api": "APIKEY_FROM_EDGE_IMPULSE", "impulse-id": "71", "hours_ahead": 8},
         {"model": "modelfile_24hr.eim", "api": "APIKEY_FROM_EDGE_IMPULSE", "impulse-id": "3", "hours_ahead": 24}
     ],
-    "foss_station_id": "F2470",
     "ref": "F2470",
     "rainfall_refs": ["059793"],
     "refs": ["F2470", "L2471", "L2472", "L2478"],
